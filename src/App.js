@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
+import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 export default function App() {
@@ -12,18 +13,23 @@ export default function App() {
 
   return (
     <div>
-    <Typography  variant="body1">
-      E: {Math.floor((now - birthE) / (1000*60*60*24))}
-    </Typography>
-    <Typography  variant="body1">
-      F: {Math.floor((now - birthF) / (1000*60*60*24))}
-    </Typography>
-    <Typography  variant="body1">
-      Love: {Math.floor(diff/ (1000*60*60*24))} days 
-      and {diff.getHours().toString().padStart(2, '0')}
-         :{diff.getMinutes().toString().padStart(2, '0')}
-         :{diff.getSeconds().toString().padStart(2, '0')}
-    </Typography>
+      <Container maxWidth="sm">
+        <Typography  variant="h1" gutterBottom>
+          Our Love
+        </Typography>
+        <Typography  variant="body1">
+          E: {Math.floor((now - birthE) / (1000*60*60*24))}
+        </Typography>
+        <Typography  variant="body1">
+          F: {Math.floor((now - birthF) / (1000*60*60*24))}
+        </Typography>
+        <Typography  variant="body1">
+          Love: {Math.floor(diff/ (1000*60*60*24))} days 
+          and {diff.getHours().toString().padStart(2, '0')}
+            :{diff.getMinutes().toString().padStart(2, '0')}
+            :{diff.getSeconds().toString().padStart(2, '0')}
+        </Typography>
+      </Container>
     </div>
   );
 }
