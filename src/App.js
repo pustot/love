@@ -19,7 +19,10 @@ export default function App() {
       F: {Math.floor((now - birthF) / (1000*60*60*24))}
     </Typography>
     <Typography  variant="body1">
-      Love: {Math.floor(diff/ (1000*60*60*24))} days and {diff.getHours()}:{diff.getMinutes()}:{diff.getSeconds()}
+      Love: {Math.floor(diff/ (1000*60*60*24))} days 
+      and {diff.getHours().toString().padStart(2, '0')}
+         :{diff.getMinutes().toString().padStart(2, '0')}
+         :{diff.getSeconds().toString().padStart(2, '0')}
     </Typography>
     </div>
   );
