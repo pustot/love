@@ -4,7 +4,7 @@
     "display": "fullscreen",
     "icons": [
       {
-        "src": "public/icons8-love-48.png",
+        "src": "%PUBLIC_URL%/icons8-love-48.png",
         "sizes": "48x48",
         "type": "image/png"
       }
