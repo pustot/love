@@ -61,7 +61,7 @@ export default function App() {
               <CardMedia
                 component="img"
                 image="https://ethanyangcx.github.io/love/pic/2022-0605-1-1.jpg"
-                alt="happy new year"
+                alt="sweet hug in front of Westminster Abbey"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
