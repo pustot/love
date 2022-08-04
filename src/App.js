@@ -92,7 +92,7 @@ export default function App() {
           alt="sweet hug in front of Westminster Abbey"
           title="第一次旅遊"
           main={dayNumberFromLove('2022-06-05T18:00+01:00') + 
-                " ❤️ 倫敦之行，西敏寺前的溫馨。"} 
+                " ❤️ 崘屯（lon-don）（英：London）之行，西敏（myinq）寺前的溫馨。"} 
         />
 
         <PostCard 
