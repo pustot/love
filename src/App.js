@@ -103,6 +103,22 @@ export default function App() {
                 " ❤️ 年夜飯上第一次相識，一起切土豆，一起包餃子，一起不上桌，一起回家。"}
         />
 
+        <PostCard 
+          image="https://ethanyangcx.github.io/love/pic/for-2021-1003-0100.jpeg"
+          alt="F before edinburgh"
+          title="抓馬即將赴曀"
+          main={dayNumberFromLove('2021-10-03T01:00+08:00') + 
+                " ❤️ 登上上海（djyangq-heojq）飛往曀田（qejh-den）（英：Edinburgh）（蘇蓋：Dùn Èideann）的飛機，準備迎接我們的愛情。"}
+        />
+
+        <PostCard 
+          image="https://ethanyangcx.github.io/love/pic/for-2021-0915-1600.jpg"
+          alt="E before edinburgh"
+          title="抓貓即將赴曀"
+          main={dayNumberFromLove('2021-09-15T16:00+08:00') + 
+                " ❤️ 登上深圳（sjim-tjwinh）飛往曀田（qejh-den）（英：Edinburgh）（蘇蓋：Dùn Èideann）的飛機，準備迎接我們的愛情。"}
+        />
+
       </Stack>
       </Container>
     </div>
