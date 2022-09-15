@@ -1,5 +1,6 @@
+import "purecss/build/pure.css";
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import "./styles.scss";
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -13,8 +14,18 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-export default function App() {
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+
+function App() {
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
+
   const eStart = new Date('1997-03-06T06:06:06+08:00')
   const fStart = new Date('1997-10-13T03:06:06+08:00')
   const loveStart = new Date('2022-03-27T06:06:06+00:00')
@@ -90,23 +101,31 @@ export default function App() {
   return (
     <div>
       <Container maxWidth="sm">
-      <Stack direction="row" justifyContent="flex-end">
-      <FormControl >
-        <InputLabel id="demo-simple-select-label">Language</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={lang}
-          label="Language"
-          onChange={handleChange}
-        >
-          <MenuItem value={"en"}>English</MenuItem>
-          <MenuItem value={"zh-tra"}>繁體中文</MenuItem>
-          <MenuItem value={"zh-sim"}>简体中文</MenuItem>
-          <MenuItem value={"tto-bro"}>b8Q7Z2D8FA</MenuItem>
-          <MenuItem value={"tto"}>mim</MenuItem>
-        </Select>
-      </FormControl>
+      <Stack direction="row" spacing={2} justifyContent="flex-end" sx={{p: 3}}>
+        
+        <FormControl >
+          <InputLabel id="demo-simple-select-label">Language</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={lang}
+            label="Language"
+            onChange={handleChange}
+          >
+            <MenuItem value={"en"}>English</MenuItem>
+            <MenuItem value={"zh-tra"}>繁體中文</MenuItem>
+            <MenuItem value={"zh-sim"}>简体中文</MenuItem>
+            <MenuItem value={"tto-bro"}>b8Q7Z2D8FA</MenuItem>
+            <MenuItem value={"tto"}>mim</MenuItem>
+          </Select>
+        </FormControl>
+
+        <Button variant="outlined" 
+                onClick={colorMode.toggleColorMode}
+                color="inherit"
+                startIcon={theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}>
+            Theme
+        </Button>
       </Stack>
 
       <Stack spacing={2}>
@@ -195,5 +214,36 @@ export default function App() {
       </Stack>
       </Container>
     </div>
+  );
+}
+
+export default function AppWithColorToggler() {
+  const [mode, setMode] = React.useState('light');
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+      <CssBaseline />
+        <App />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
