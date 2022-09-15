@@ -129,7 +129,7 @@ function App() {
       </Stack>
 
       <Stack spacing={2}>
-        <Typography  variant="h1">
+        <Typography  variant="h2">
           {titles.get("main")[lang]}
         </Typography>
 
