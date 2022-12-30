@@ -57,43 +57,43 @@ function App() {
   const titles = new Map();
   titles.set('0710', {
     "en": "A Photo of Us Taken in the Lift in O'Shea, Jul 10",
-    "zh-tra": "鷗崽電梯合照午灰",
-    "zh-sim": "鸥崽电梯合照午灰",
+    "zh-Hant": "鷗崽電梯合照午灰",
+    "zh-Hans": "鸥崽电梯合照午灰",
     "tto-bro": "OFWQae D8aH3mae X8ihTeaF3 Zo2Xoe",
     "tto": "Nomo X vVoH aH SeNm aHN oWaa aH Zo2Xoe",
   });
   titles.set("main", {
     "en": "Our Love",
-    "zh-tra": "我們的愛",
-    "zh-sim": "我们的爱",
+    "zh-Hant": "我們的愛",
+    "zh-Hans": "我们的爱",
     "tto-bro": "Z72VoH DaA Oie3",
     "tto": "ie S vVoH",
   })
   titles.set("0605", {
     "en": "First Trip",
-    "zh-tra": "第一次旅遊",
-    "zh-sim": "第一次旅游",
+    "zh-Hant": "第一次旅遊",
+    "zh-Hans": "第一次旅游",
     "tto-bro": "D8ae3Oemce3 Sei2EdF",
     "tto": "Sei2 e Jei",
   })
   titles.set("0131", {
     "en": "The First Time We Met",
-    "zh-tra": "第一次相識",
-    "zh-sim": "第一次相识",
+    "zh-Hant": "第一次相識",
+    "zh-Hans": "第一次相识",
     "tto-bro": "D8ae3Oemce3 CeRZ6eA",
     "tto": "X8FRQ3 e Jei",
   })
   titles.set("f0", {
     "en": "Drama Coming to Edinburgh",
-    "zh-tra": "抓馬即將赴曀",
-    "zh-sim": "抓马即将赴曀",
+    "zh-Hant": "抓馬即將赴曀",
+    "zh-Hans": "抓马即将赴曀",
     "tto-bro": "GQRFVQR2 9eA9eRZ hvo3Oae3",
     "tto": "cs ae S DKRVR",
   })
   titles.set("e0", {
     "en": "Dramo Coming to Edinburgh",
-    "zh-tra": "抓貓即將赴曀",
-    "zh-sim": "抓猫即将赴曀",
+    "zh-Hant": "抓貓即將赴曀",
+    "zh-Hans": "抓猫即将赴曀",
     "tto-bro": "GQRFVQeaF 9eA9eRZ hvo3Oae3",
     "tto": "cs ae S DKRVo",
   })
@@ -113,8 +113,8 @@ function App() {
             onChange={handleChange}
           >
             <MenuItem value={"en"}>English</MenuItem>
-            <MenuItem value={"zh-tra"}>繁體中文</MenuItem>
-            <MenuItem value={"zh-sim"}>简体中文</MenuItem>
+            <MenuItem value={"zh-Hant"}>繁體中文</MenuItem>
+            <MenuItem value={"zh-Hans"}>简体中文</MenuItem>
             <MenuItem value={"tto-bro"}>b8Q7Z2D8FA</MenuItem>
             <MenuItem value={"tto"}>mim</MenuItem>
           </Select>
