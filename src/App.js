@@ -1,22 +1,18 @@
 import "purecss/build/pure.css";
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
-import Chip from '@mui/material/Chip';
-import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import { 
+  Avatar, Button, CardActionArea, CardActions,
+  Chip, Container, Stack, Typography,
+  Card, CardContent, CardMedia,
+  InputLabel, MenuItem, FormControl, Select,
+  CssBaseline
+} from '@mui/material';
 import PostCard from "./components/PostCard";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Avatar, Button, CardActionArea, CardActions } from '@mui/material';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import CssBaseline from '@mui/material/CssBaseline';
-import IconButton from '@mui/material/IconButton';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Blog from './pages/Blog'
+
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
@@ -32,6 +28,7 @@ function App() {
   const [loveDura, setLoveDura] = useState(new Date(Date.now() - loveStart));
   const [eDura, setEDura] = useState(new Date(Date.now() - eStart));
   const [fDura, setFDura] = useState(new Date(Date.now() - fStart));
+  const [blogList, setBlogList] = React.useState([]);
 
   function dayNumberFromLove(date) {
     return Math.floor(new Date(new Date(date) - loveStart) / (1000*60*60*24));
@@ -53,6 +50,20 @@ function App() {
       clearInterval(interval);
     }
   }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const text = await (await fetch(process.env.PUBLIC_URL + '/blogs/' + 'blog-list.txt')).text();
+      // console.log(process.env.PUBLIC_URL + '/blogs/' + 'blog-list.txt');
+      setBlogList(text.split(/\r?\n/));
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log(blogList);
+  }, [blogList]);
 
   const titles = new Map();
   titles.set('0710', {
@@ -154,7 +165,14 @@ function App() {
           />
         </Stack>
 
+        {blogList.map(blogName =>
+          <Link to={"/love/" + blogName} key={blogName}>{blogName}</Link>
+        )}
+
         {/* TODO: make PostCard compatible with links*/}
+        <Typography variant="h4">
+          (Below is the Old Version Website to be Archived)
+        </Typography>
         <Card sx={{}}>
           <CardActionArea>
             <CardMedia
@@ -219,6 +237,7 @@ function App() {
 
 export default function AppWithColorToggler() {
   const [mode, setMode] = React.useState('light');
+  const [blogList, setBlogList] = React.useState([]);
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
@@ -238,11 +257,33 @@ export default function AppWithColorToggler() {
     [mode],
   );
 
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const text = await (await fetch(process.env.PUBLIC_URL + '/blogs/' + 'blog-list.txt')).text();
+      // console.log(process.env.PUBLIC_URL + '/blogs/' + 'blog-list.txt');
+      setBlogList(text.split(/\r?\n/));
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log(blogList);
+  }, [blogList]);
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <CssBaseline />
-        <App />
+
+      <BrowserRouter>
+        <Routes>
+        <Route path="/love" element={<App />} />
+        <Route path="/love/:blogName" element={<Blog ColorModeContext={ColorModeContext} />} />
+        </Routes>
+      </BrowserRouter>
+      
+        {/* <App /> */}
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
