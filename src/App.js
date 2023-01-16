@@ -275,7 +275,6 @@ export default function AppWithColorToggler() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <CssBaseline />
-
       <BrowserRouter>
         <Routes>
         <Route path="/love" element={<App />} />
