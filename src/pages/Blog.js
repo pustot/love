@@ -36,7 +36,7 @@ export default function Blog({ColorModeContext}) {
     };
 
     const fetchMarkdown = async () => {
-        const text = await (await fetch(process.env.PUBLIC_URL + '/blogs/' + blogName + '/' + lang + '.md')).text();
+        const text = await (await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + blogName + '/' + lang + '.md')).text();
         setMarkdown(text);
     }
 
