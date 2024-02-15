@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import PostCard from "./components/PostCard";
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import Blog from './pages/Blog'
 
 import Brightness4Icon from '@mui/icons-material/Brightness4';
