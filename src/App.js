@@ -275,12 +275,12 @@ export default function AppWithColorToggler() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
         <Route path="" element={<App />} />
         <Route path="/:blogName" element={<Blog ColorModeContext={ColorModeContext} />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       
         {/* <App /> */}
       </ThemeProvider>
