@@ -277,8 +277,8 @@ export default function AppWithColorToggler() {
       <CssBaseline />
       <BrowserRouter>
         <Routes>
-        <Route path="/love" element={<App />} />
-        <Route path="/love/:blogName" element={<Blog ColorModeContext={ColorModeContext} />} />
+        <Route path="" element={<App />} />
+        <Route path="/:blogName" element={<Blog ColorModeContext={ColorModeContext} />} />
         </Routes>
       </BrowserRouter>
       
