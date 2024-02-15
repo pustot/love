@@ -49,7 +49,7 @@ export default function Blog({ColorModeContext}) {
       <div>
         <Container maxWidth="sm">
         <Stack direction="row" spacing={2} justifyContent="flex-end" sx={{p: 3}}>
-            <Button component={Link} to="/love" color="inherit" startIcon={<HomeIcon/>}>
+            <Button component={Link} to="/" color="inherit" startIcon={<HomeIcon/>}>
                 
                 </Button>
           
