@@ -32,9 +32,9 @@ export default function Blog(props: { lang: keyof I18nText }) {
 
     // TODO: 暂时用这种方法，查不到对应语言就改 zh-Hans。以后改更好的 fallback
     const fetchMarkdown = async () => {
-        let resp = await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + blogName + '/' + lang + '.md');
+        let resp = await fetch("https://pustot.github.io/public/love" + '/blogs/' + blogName + '/' + lang + '.md');
         if (resp.ok == false) {
-          resp = await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + blogName + '/' + 'zh-Hans' + '.md');
+          resp = await fetch("https://pustot.github.io/public/love" + '/blogs/' + blogName + '/' + 'zh-Hans' + '.md');
         }
         const text = await resp.text();
         setMarkdown(text);

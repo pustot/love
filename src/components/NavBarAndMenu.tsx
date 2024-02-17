@@ -74,13 +74,13 @@ export default function NavBarAndMenu(props: {
     const handleLangChange = (event: SelectChangeEvent) => {
         console.log(event.target);
         langSetter(event.target.value as LangCode);
-        localStorage.setItem("twaqngu/0.1/lang", event.target.value);
+        localStorage.setItem("pustot/0.1/lang", event.target.value);
     };
 
     const handleLangMenuItemClick = (tar: LangCode) => {
         console.log(tar);
         langSetter(tar);
-        localStorage.setItem("twaqngu/0.1/lang", tar);
+        localStorage.setItem("pustot/0.1/lang", tar);
     };
 
     const IndexDrawer = () => (
@@ -151,7 +151,7 @@ export default function NavBarAndMenu(props: {
                 </ListItem>
 
                 <ListItem key="nameLogo" disablePadding>
-                    <ListItemButton component={MuiLink} href="https://twaqngu.com/">
+                    <ListItemButton component={MuiLink} href="https://pustot.com/">
                         <ListItemText
                             inset
                             primary={getLocaleText(

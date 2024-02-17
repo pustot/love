@@ -48,7 +48,7 @@ export default function Home(props: { lang: keyof I18nText }) {
   useEffect(() => {
     async function fetchData() {
       // You can await here
-      const text = await (await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + 'blog-list.txt')).text();
+      const text = await (await fetch("https://pustot.github.io/public/love" + '/blogs/' + 'blog-list.txt')).text();
       // console.log(process.env.PUBLIC_URL + '/blogs/' + 'blog-list.txt');
       setBlogList(text.split(/\r?\n/));
     }
@@ -123,18 +123,18 @@ export default function Home(props: { lang: keyof I18nText }) {
 
         <Stack direction="row" spacing={1}>
           <Chip
-            avatar={<Avatar alt="avatar e" src="https://twaqngu.github.io/public/love/pic/avatarE.jpg" />}
+            avatar={<Avatar alt="avatar e" src="https://pustot.github.io/public/love/pic/avatarE.jpg" />}
             label={Math.floor(eDura.getTime() / (1000*60*60*24))}
           />
           <Chip
-            avatar={<Avatar alt="avatar f" src="https://twaqngu.github.io/public/love/pic/avatarF.jpg" />}
+            avatar={<Avatar alt="avatar f" src="https://pustot.github.io/public/love/pic/avatarF.jpg" />}
             label={Math.floor(fDura.getTime() / (1000*60*60*24))}
           />
         </Stack>
 
         <Stack direction="row" spacing={1}>
           <Chip
-              avatar={<Avatar alt="avatar heart" src="https://twaqngu.github.io/public/love/icons8-love.gif" />}
+              avatar={<Avatar alt="avatar heart" src="https://pustot.github.io/public/love/icons8-love.gif" />}
               label={Math.floor(loveDura.getTime()/ (1000*60*60*24)) + ' days and ' 
                     + loveDura.getHours().toString().padStart(2, '0') + ':' 
                     + loveDura.getMinutes().toString().padStart(2, '0') + ':'
@@ -154,7 +154,7 @@ export default function Home(props: { lang: keyof I18nText }) {
           <CardActionArea>
             <CardMedia
               component="img"
-              image="https://twaqngu.github.io/public/love/pic/2022-0710-1-1.jpeg"
+              image="https://pustot.github.io/public/love/pic/2022-0710-1-1.jpeg"
               alt="photo of us taken at elevator"
             />
             <CardContent>
@@ -175,7 +175,7 @@ export default function Home(props: { lang: keyof I18nText }) {
         </Card>
 
         <PostCard 
-          image="https://twaqngu.github.io/public/love/pic/2022-0605-1-1.jpg"
+          image="https://pustot.github.io/public/love/pic/2022-0605-1-1.jpg"
           alt="sweet hug in front of Westminster Abbey"
           title={getLocaleText(titles.get("0605"), lang)}
           main={dayNumberFromLove('2022-06-05T18:00+01:00') + 
@@ -183,7 +183,7 @@ export default function Home(props: { lang: keyof I18nText }) {
         />
 
         <PostCard 
-          image="https://twaqngu.github.io/public/love/pic/2022-0131-1-1.jpeg"
+          image="https://pustot.github.io/public/love/pic/2022-0131-1-1.jpeg"
           alt="happy new year"
           title={getLocaleText(titles.get("0131"), lang)}
           main={dayNumberFromLove('2022-01-31T19:00+00:00') + 
@@ -191,7 +191,7 @@ export default function Home(props: { lang: keyof I18nText }) {
         />
 
         <PostCard 
-          image="https://twaqngu.github.io/public/love/pic/for-2021-1003-0100.jpeg"
+          image="https://pustot.github.io/public/love/pic/for-2021-1003-0100.jpeg"
           alt="F before edinburgh"
           title={getLocaleText(titles.get("f0"), lang)}
           main={dayNumberFromLove('2021-10-03T01:00+08:00') + 
@@ -199,7 +199,7 @@ export default function Home(props: { lang: keyof I18nText }) {
         />
 
         <PostCard 
-          image="https://twaqngu.github.io/public/love/pic/for-2021-0915-1600.jpg"
+          image="https://pustot.github.io/public/love/pic/for-2021-0915-1600.jpg"
           alt="E before edinburgh"
           title={getLocaleText(titles.get("e0"), lang)}
           main={dayNumberFromLove('2021-09-15T16:00+08:00') + 
