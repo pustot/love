@@ -1,5 +1,6 @@
 import "purecss/build/pure.css";
-import React, { useState, useEffect } from "react";
+import * as React from "react";
+import { useState, useEffect } from "react";
 import "../styles.scss";
 import { 
     Avatar, Button, CardActionArea, CardActions,
@@ -11,6 +12,7 @@ import {
 import MuiMarkdown from 'mui-markdown';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { getLocaleText, I18nText } from "../utils/I18n";
 
 import {
     useParams,
@@ -21,22 +23,20 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import HomeIcon from '@mui/icons-material/Home';
 
-export default function Blog({ColorModeContext}) {
-    const theme = useTheme();
-    const colorMode = React.useContext(ColorModeContext);
-  
-    const [lang, setLang] = React.useState('zh-Hans');
+export default function Blog(props: { lang: keyof I18nText }) {
 
+  const { lang } = props;
     const { blogName } = useParams();
 
     const [markdown, setMarkdown] = React.useState('Loading');
-  
-    const handleChange = (event) => {
-      setLang(event.target.value);
-    };
 
+    // TODO: 暂时用这种方法，查不到对应语言就改 zh-Hans。以后改更好的 fallback
     const fetchMarkdown = async () => {
-        const text = await (await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + blogName + '/' + lang + '.md')).text();
+        let resp = await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + blogName + '/' + lang + '.md');
+        if (resp.ok == false) {
+          resp = await fetch("https://twaqngu.github.io/public/love" + '/blogs/' + blogName + '/' + 'zh-Hans' + '.md');
+        }
+        const text = await resp.text();
         setMarkdown(text);
     }
 
@@ -48,35 +48,6 @@ export default function Blog({ColorModeContext}) {
     return (
       <div>
         <Container maxWidth="sm">
-        <Stack direction="row" spacing={2} justifyContent="flex-end" sx={{p: 3}}>
-            <Button component={Link} to="/" color="inherit" startIcon={<HomeIcon/>}>
-                
-                </Button>
-          
-          <FormControl >
-            <InputLabel id="demo-simple-select-label">Language</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={lang}
-              label="Language"
-              onChange={handleChange}
-            >
-              <MenuItem value={"en"}>English</MenuItem>
-              <MenuItem value={"zh-Hant"}>繁體中文</MenuItem>
-              <MenuItem value={"zh-Hans"}>简体中文</MenuItem>
-              <MenuItem value={"tto-bro"}>b8Q7Z2D8FA</MenuItem>
-              <MenuItem value={"tto"}>mim</MenuItem>
-            </Select>
-          </FormControl>
-  
-          <Button variant="outlined" 
-                  onClick={colorMode.toggleColorMode}
-                  color="inherit"
-                  startIcon={theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}>
-              Theme
-          </Button>
-        </Stack>
   
         <Stack spacing={2}>
           

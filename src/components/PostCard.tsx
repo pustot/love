@@ -1,10 +1,12 @@
+import * as React from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-export default function PostCard({image, alt, title, main}) {
+export default function PostCard(props: {image: string, alt: string, title: string, main: string}) {
+    const { image, alt, title, main } = props;
     return (
         <Card sx={{}}> 
             <CardActionArea>
