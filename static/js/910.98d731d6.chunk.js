@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklove=self.webpackChunklove||[]).push([[910],{9910:function(t,e,n){n.r(e),n.d(e,{default:function(){return u.Z},getTypographyUtilityClass:function(){return r.f},typographyClasses:function(){return r.Z}});var u=n(4567),r=n(940)}}]);
